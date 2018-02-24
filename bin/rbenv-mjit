@@ -8,6 +8,6 @@ if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
   exit
 fi
 
-if [ "$RBENV_VERSION" = "2.6.0-dev" ]; then
+if [[ $RBENV_VERSION = "2.6"* ]]; then
   echo "export RUBYOPT=--jit"
 fi
