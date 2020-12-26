@@ -4,10 +4,10 @@ set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-  echo "rbenv-mjit 0.1.0"
+  echo "rbenv-mjit 0.2.0"
   exit
 fi
 
-if [[ $RBENV_VERSION = "2."[67]* ]]; then
+if [[ $(echo $RBENV_VERSION | tr -d '.') -gt "250" ]]; then
   echo "export RUBYOPT=--jit"
 fi
