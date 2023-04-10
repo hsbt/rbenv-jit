@@ -8,6 +8,6 @@ if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
   exit
 fi
 
-if [[ $(echo $RBENV_VERSION | tr -d '.') -gt "250" ]]; then
+if [[ $(echo $RBENV_VERSION | tr -d '.' | cut -c 1-2) -gt "25" ]]; then
   echo "export RUBYOPT=--jit"
 fi
