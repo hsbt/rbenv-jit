@@ -4,10 +4,15 @@ set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-  echo "rbenv-jit 0.2.0"
+  echo "rbenv-jit 0.3.0"
   exit
 fi
 
 if [[ $(echo $RBENV_VERSION | tr -d '.' | cut -c 1-2) -gt "25" ]]; then
-  echo "export RUBYOPT=--jit"
+  # RJIT は macOS 未対応なので --yjit にする
+  if [[ $(uname) == "Darwin" ]]; then
+    echo "export RUBYOPT=--yjit"
+  else
+    echo "export RUBYOPT=--jit"
+  fi
 fi
