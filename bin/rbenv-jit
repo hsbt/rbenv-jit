@@ -11,12 +11,9 @@ fi
 version=$(echo $RBENV_VERSION | tr -d '.' | cut -c 1-2)
 
 if [[ $version -gt "25" ]]; then
-  # macOS と 3.1 以降の場合は未対応なので --yjit にする
   if [[ $(uname) == "Darwin" ]]; then
     if [[ $version -gt "31" ]]; then
       echo "export RUBYOPT='--yjit $RUBYOPT'"
-    else
-      echo "export RUBYOPT='--jit $RUBYOPT'"
     fi
   else
     echo "export RUBYOPT='--jit $RUBYOPT'"
