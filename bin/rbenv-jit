@@ -11,7 +11,7 @@ fi
 version=$(echo $RBENV_VERSION | tr -d '.' | cut -c 1-2)
 
 if [[ $version -gt "25" ]]; then
-  if [[ $(uname) == "Darwin" ]]; then
+  if [[ $(uname) == "Darwin" && $(uname -m) == "arm64" ]]; then
     if [[ $version -gt "31" ]]; then
       echo "export RUBYOPT='--yjit $RUBYOPT'"
     fi
