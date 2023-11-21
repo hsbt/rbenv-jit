@@ -4,7 +4,7 @@ set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-  echo "rbenv-jit 0.5.0"
+  echo "rbenv-jit 0.6.0"
   exit
 fi
 
