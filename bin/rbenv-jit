@@ -17,3 +17,7 @@ if [[ $version -gt "25" ]]; then
     echo "export RUBYOPT='--jit $RUBYOPT'"
   fi
 fi
+
+if [[ $version -eq "ruby-dev" ]]; then
+  echo "export RUBYOPT='--yjit $RUBYOPT'"
+fi
