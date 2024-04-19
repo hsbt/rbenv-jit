@@ -4,7 +4,7 @@ set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
 if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-  echo "rbenv-jit 0.7.1"
+  echo "rbenv-jit 0.8.0"
   exit
 fi
 
@@ -17,6 +17,8 @@ fi
 if [[ $version -gt "25" ]]; then
   if [[ $(uname) == "Darwin" && $(uname -m) == "arm64" && $version -gt "31" ]]; then
     echo "export RUBYOPT='--yjit $RUBYOPT'"
+  elif [[ $(uname) == "Darwin" && $(uname -m) == "arm64" && $version -eq "31" ]]; then
+    echo "export RUBYOPT='$RUBYOPT'"
   else
     echo "export RUBYOPT='--jit $RUBYOPT'"
   fi
